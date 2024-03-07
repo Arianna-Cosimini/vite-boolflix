@@ -20,7 +20,7 @@ export default {
 <template>
     <div class="container">
 
-        <form class="w-100 d-flex align-items-center justify-content-center">
+        <form class="w-100 d-flex align-items-center justify-content-center bg-transparent">
             <div class="">
                 <input v-model="store.userChoice" type="text" class="form-control" id="exampleInputEmail1" placeholder="Scegli un film" aria-describedby="emailHelp">
             </div>
