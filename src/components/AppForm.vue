@@ -20,13 +20,11 @@ export default {
 <template>
     <div class="container">
 
-        <form class="w-25">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Choose your film</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text"></div>
+        <form class="w-100 d-flex align-items-center justify-content-center">
+            <div class="">
+                <input v-model="store.userChoice" type="text" class="form-control" id="exampleInputEmail1" placeholder="Scegli un film" aria-describedby="emailHelp">
             </div>
-            <button type="button" class="btn btn-primary">invia</button>
+            <button @click="$emit('search')" type="button" class="btn btn-primary">invia</button>
         </form>
     </div>
 

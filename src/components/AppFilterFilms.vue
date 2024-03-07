@@ -19,6 +19,11 @@ export default {
 
 <template>
 
+    <ul>
+        <li v-for="currentFilm in store.filmList">
+        {{ currentFilm.original_title }}</li>
+    </ul>
+
 
     
 </template>
