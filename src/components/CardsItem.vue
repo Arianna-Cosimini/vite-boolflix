@@ -30,84 +30,87 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <div class="cards d-flex flex-wrap">
-
-            <div class="card">
-
-                <div class="card-body">
-
-                    <img :src="'https://image.tmdb.org/t/p/w342' + imageCard" alt="">
-
-                    <h5 class="card-title">{{ titleFilm }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ originalTitle }}</h6>
-                    <div class="flag">
-
-                        <img v-if="language == 'en'" src="../../public/img/british-flag-.jpg"
-                            alt="English Flag">
-                        <img v-else-if="language == 'it'"
-                            src="../../public/img/italy-italia-flag-of-italy-italian-flag-flag.webp" alt="Italian Flag">
-                        <img v-else-if="language == 'fr'" src="../../public/img/fr.png"
-                            alt="French Flag">
-                        <img v-else-if="language == 'es'"
-                            src="../../public/img/illustration-of-spain-flag-vector.jpg" alt="Spain Flag">
-                        <img v-else-if="language == 'cn'" src="../../public/img/cn-flag.jpg"
-                            alt="Italian Flag">
-                        <img v-else-if="language == 'sv'" src="../../public/img/swiss02_flag.jpg"
-                            alt="Italian Flag">
-
-                        <img v-else src="../../public/img/Fashion Minimal Mascot Logo.svg" alt="">
 
 
-                    </div>
+    <div id="image" class="card">
 
-                </div>
+        <div class="card-img">
+            <img v-if="imageCard !== null" :src="'https://image.tmdb.org/t/p/w342' + imageCard" alt="">
 
-            </div>
+
+            <img v-else src="../../public/img/Fashion Minimal Mascot Logo.svg" alt="">
 
         </div>
 
 
 
+        <div class="card-body">
 
-        <!-- <div class="cards d-flex flex-wrap">
+            <h5 class="card-title">{{ titleFilm }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ originalTitle }}</h6>
+            <div class="flag">
 
-            <div class="card">
+                <img v-if="language == 'en'" src="../../public/img/british-flag-.jpg" alt="English Flag">
+                <img v-else-if="language == 'it'"
+                    src="../../public/img/italy-italia-flag-of-italy-italian-flag-flag.webp" alt="Italian Flag">
+                <img v-else-if="language == 'fr'" src="../../public/img/fr.png" alt="French Flag">
+                <img v-else-if="language == 'es'" src="../../public/img/illustration-of-spain-flag-vector.jpg"
+                    alt="Spain Flag">
+                <img v-else-if="language == 'cn'" src="../../public/img/cn-flag.jpg" alt="Italian Flag">
+                <img v-else-if="language == 'sv'" src="../../public/img/swiss02_flag.jpg" alt="Italian Flag">
 
-                <div class="card-body">
-                    <img :src="'https://image.tmdb.org/t/p/w300' + imageCard" alt="">
+                <img v-else src="../../public/img/Fashion Minimal Mascot Logo.svg" alt="">
 
-                    <h5 class="card-title">{{titleSerie }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ originalName }}</h6>
-                    <p class="card-text">{{ currentSerie.overview }}</p>
-                    <p class="card-text">{{ currentSerie.vote_average }}</p>
-                </div>
 
             </div>
-
-        </div> -->
+        </div>
 
     </div>
+
+
 
 </template>
 
 <style lang="scss" scoped>
-
-.card{
+.card {
     width: calc(100% / 5);
 
-    img{
-        width: 100%;
-        // height: 100%;
-        object-fit: cover;
+
+    .card-img {
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     }
 
-    .flag{
-        img{
+    .card-body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+    .flag {
+        img {
             width: 50px;
         }
     }
+
 }
 
 
+.card:hover {
+
+    .card-body {
+        opacity: 1;
+    }
+
+    .card-img{
+        opacity: 0;
+    }
+}
 </style>

@@ -25,19 +25,31 @@ export default {
 
 
 <template>
-    <CardsItem v-for="currentFilm in store.filmList" 
-    :imageCard="currentFilm.poster_path"
-    :titleFilm="currentFilm.title"
-    :originalTitle="currentFilm.original_title"
-    :language="currentFilm.original_language">
-    </CardsItem>
 
-    <!-- <CardsItem v-for="currentSerie in store.series" 
-    :imageCard="currentSerie.poster_path"
-    :titleSerie="currentSerie.name"
-    :originalName="currentSerie.original_name"
-    :language="currentSerie.original_language">
-    </CardsItem> -->
+    <div class="container mb-4">
+        <h3>I film</h3>
+        <div class="cards d-flex flex-wrap">
+
+            <CardsItem v-for="currentFilm in store.filmList" :imageCard="currentFilm.poster_path"
+                :titleFilm="currentFilm.title" :originalTitle="currentFilm.original_title"
+                :language="currentFilm.original_language">
+            </CardsItem>
+        </div>
+
+    </div>
+
+    <div class="container mb-4">
+        <h3>Le serie</h3>
+        <div class="cards d-flex flex-wrap">
+            <CardsItem v-for="currentSerie in store.series" :imageCard="currentSerie.poster_path"
+                :titleSerie="currentSerie.name" :originalName="currentSerie.original_name"
+                :language="currentSerie.original_language">
+            </CardsItem>
+
+        </div>
+
+    </div>
+
 </template>
 
 <style lang="scss"></style>

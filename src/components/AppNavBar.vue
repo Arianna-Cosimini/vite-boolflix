@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid align-items-center">
             <a class="navbar-brand" href="#">
                 <img src="../../public/img/Fashion Minimal Mascot Logo.svg"alt="">
@@ -69,6 +69,10 @@ export default {
 </template>
 
 <style lang="scss">
+
+.navbar-nav {
+    color: white;
+}
 img{
     width: 150px;
 }
