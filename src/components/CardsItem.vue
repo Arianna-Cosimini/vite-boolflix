@@ -19,6 +19,7 @@ export default {
         originalName: String,
         language: String,
         vote: Number,
+        overview: String,
 
 
     },
@@ -34,21 +35,22 @@ export default {
 
 
     <div id="image" class="card">
-
+        <!-- immagine principale della card -->
         <div class="card-img">
             <img v-if="imageCard !== null" :src="'https://image.tmdb.org/t/p/w342' + imageCard" alt="">
-
-
+            <!-- controllo: se l'immagine non c'è la sostituisco -->
             <img v-else src="../../public/img/Fashion Minimal Mascot Logo.svg" alt="">
 
         </div>
 
 
 
-        <div class="card-body">
+        <div class="card-body p-1">
 
-            <h5 class="card-title">{{ titleFilm }}</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">{{ originalTitle }}</h6>
+            <h6 class="card-title m-0">{{ titleFilm }}</h6>
+            <span class="card-subtitle mb-2 text-body-secondary mb-2">{{ originalTitle }}</span>
+
+            <!-- Sostituisco la lingia con le bandiere -->
             <div class="flag">
 
                 <img v-if="language == 'en'" src="../../public/img/british-flag-.jpg" alt="English Flag">
@@ -65,12 +67,20 @@ export default {
 
             </div>
 
+            <!-- sostituisco il voto con le stelle.  -->
             <div class="vote">
+
+                <!-- ho utilizzato il v-for per generare un numero massimo di 5 stelle 
+                dove il numero di stelle piene dipende dal valore di vote -->
                 <p>
-                    <span v-for="star in 5"
-                        :class="{ 'fas fa-star': vote >= star, 'far fa-star': vote < star }">
+                    <span v-for="star in 5" :class="{ 'fas fa-star': vote >= star, 'far fa-star': vote < star }">
                     </span>
                 </p>
+            </div>
+
+            <!-- Descrizione del film -->
+            <div class="overview">
+                <span>{{ overview }}</span>
             </div>
 
         </div>
@@ -83,7 +93,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-    width: calc(100% / 5);
+    width: calc(100% / 6);
     background-color: #242424;
 
 
@@ -103,11 +113,14 @@ export default {
         left: 0;
         opacity: 0;
         transition: opacity .3s;
+
+        width: 100%;
+        text-align: center;
     }
 
     .flag {
         img {
-            width: 50px;
+            width: 30px;
         }
     }
 
@@ -122,6 +135,14 @@ export default {
 
     .card-img {
         opacity: 0;
+    }
+}
+
+.overview {
+    line-height: 12px;
+
+    span {
+        font-size: 12px;
     }
 }
 </style>

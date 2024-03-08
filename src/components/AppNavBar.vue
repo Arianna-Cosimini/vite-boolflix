@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid align-items-center">
             <a class="navbar-brand" href="#">
                 <img src="../../public/img/Fashion Minimal Mascot Logo.svg"alt="">
@@ -37,29 +37,28 @@ export default {
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Serie tv</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#">Film</a>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nuovi e popolari</a>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">La mia lista</a>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sfoglia per lingua</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input v-model="store.userChoice" class="form-control me-2" type="search" placeholder="Scegli un film" aria-label="Search">
-                    <button @click="$emit('search')" class="btn btn-outline-success" type="button">Invia</button>
+                    <input v-model="store.userChoice" class="border rounded pe-2 me-2" type="search" placeholder="Scegli un film" aria-label="Search">
+                    <button @click="$emit('search')" class="btn btn-outline-light" type="button">Invia</button>
                 </form>
             </div>
         </div>
@@ -70,9 +69,7 @@ export default {
 
 <style lang="scss">
 
-.navbar-nav {
-    color: white;
-}
+
 img{
     width: 150px;
 }
