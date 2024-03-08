@@ -18,6 +18,7 @@ export default {
         originalTitle: String,
         originalName: String,
         language: String,
+        vote: Number,
 
 
     },
@@ -63,6 +64,15 @@ export default {
 
 
             </div>
+
+            <div class="vote">
+                <p>
+                    <span v-for="star in 5"
+                        :class="{ 'fas fa-star': vote >= star, 'far fa-star': vote < star }">
+                    </span>
+                </p>
+            </div>
+
         </div>
 
     </div>
@@ -74,6 +84,7 @@ export default {
 <style lang="scss" scoped>
 .card {
     width: calc(100% / 5);
+    background-color: #242424;
 
 
     .card-img {
@@ -109,7 +120,7 @@ export default {
         opacity: 1;
     }
 
-    .card-img{
+    .card-img {
         opacity: 0;
     }
 }

@@ -32,7 +32,8 @@ export default {
 
             <CardsItem v-for="currentFilm in store.filmList" :imageCard="currentFilm.poster_path"
                 :titleFilm="currentFilm.title" :originalTitle="currentFilm.original_title"
-                :language="currentFilm.original_language">
+                :language="currentFilm.original_language"
+                :vote="currentFilm.vote_average">
             </CardsItem>
         </div>
 
@@ -43,7 +44,8 @@ export default {
         <div class="cards d-flex flex-wrap">
             <CardsItem v-for="currentSerie in store.series" :imageCard="currentSerie.poster_path"
                 :titleSerie="currentSerie.name" :originalName="currentSerie.original_name"
-                :language="currentSerie.original_language">
+                :language="currentSerie.original_language"
+                :vote="currentSerie.vote_average">
             </CardsItem>
 
         </div>

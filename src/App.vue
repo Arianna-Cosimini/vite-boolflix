@@ -15,7 +15,7 @@ export default {
     AppForm,
     AppMain,
     AppNavBar,
-    
+
   },
 
 
@@ -65,19 +65,24 @@ export default {
       axios
         .get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=${this.store.userChoice}`)
         .then(res => {
+          res.data.results.forEach(film => {
+            film.vote_average = Math.min(Math.ceil(film.vote_average / 2), 5);
+
+          });
           console.log(res.data.results);
           this.store.series = res.data.results;
 
         });
 
-      },
+    },
+
   }
 }
 </script>
 
 <template>
   <AppNavBar @search="searchUser()"></AppNavBar>
-  
+
   <AppMain></AppMain>
 
 
